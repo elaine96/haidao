@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Models\News;
 use App\Models\Product;
-
+use App\Models\Picture;
 use App\Providers\UploadsManager;
 class NewsController extends Controller
 {
@@ -22,9 +22,10 @@ class NewsController extends Controller
 	public function home(Request $request) {
 		$newses = News::orderBy('id', 'desc')->paginate(4);
 		$products = Product::all();
+		$pictures = Picture::all();
 		$folder = $request->get('folder');
 		$data = $this->manager->folderInfo($folder);
-		return view('home',compact('newses','products'),$data);
+		return view('home',compact('newses','products','pictures'),$data);
 	}
 
 	public function index() {

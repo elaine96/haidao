@@ -38,4 +38,5 @@ Route::delete('/product/{product}', 'ProductController@destroy')->name('product_
 
 Route::get('/upload', 'UploadController@index')->name('picture');
 Route::post('/upload/file', 'UploadController@uploadFile')->name('upload');
-Route::delete('/upload/file', 'UploadController@deleteFile');
+Route::patch('/pic/{pic}', 'UploadController@update')->name('pic_update');
+Route::delete('/pic/{pic}', 'UploadController@deleteFile')->name('pic_delete');

@@ -12,6 +12,13 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
+						<label for="file" class="col-sm-3 control-label">
+							链接
+						</label>
+						<div class="col-md-6">
+							<input class="form-control" type="text" name="pic_href">
+						</div>
+						<div class="clear"></div>
 						<label for="file" class="col-sm-3 control-label" style="margin-top: 10px;">
 							文件
 						</label>
@@ -79,7 +86,7 @@
 				</p>
 			</div>
 			<div class="modal-footer">
-				<form method="POST" action="/upload/file">
+				<form method="POST" action="" id="delete-file-route">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<input type="hidden" name="_method" value="DELETE">
 					<input type="hidden" name="folder" value="{{ $folder }}">
@@ -92,6 +99,43 @@
 					</button>
 				</form>
 			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="modal-modify-link">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form action="" method="post" class="form-horizontal" enctype="multipart/form-data" id="modify-link-route">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				{{ method_field('PATCH') }}
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						×
+					</button>
+					<h4 class="modal-title">修改链接</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="file" class="col-sm-3 control-label">
+							链接
+						</label>
+						<div class="col-md-6">
+							<input class="form-control" type="text" name="pic_href" id="modify-link-name">
+						</div>
+						<div class="clear"></div>
+					</div>
+					<input type="hidden" id="file_name" name="file_name" class="form-control">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						取消
+					</button>
+					<button type="submit" class="btn btn-primary">
+						修改链接
+					</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>

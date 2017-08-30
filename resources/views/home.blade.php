@@ -4,21 +4,23 @@
 <section id="slider">
 	<div class="DB_tab25">
 		<ul class="DB_bgSet">
-			@foreach ($files as $file)
-				<li>
-					<img class="img" src="{{ $file['webPath'] }}" alt="">
-				</li>
+			@foreach ($pictures as $pic)
+				<a href="{{ $pic->pic_href }}">
+					<li>
+						<img class="img" src="/uploads/{{ $pic->pic_content }}" alt="">
+					</li>
+				</a>
 			@endforeach
 		</ul>
 		
 		<ul class="DB_imgSet">
-			@foreach ($files as $file)
+			@foreach ($pictures as $pic)
 				<li></li>
 			@endforeach
 		</ul>
 		<div class="DB_menuWrap">
 			<ul class="DB_menuSet">
-				@foreach ($files as $file)
+				@foreach ($pictures as $pic)
 					<li>
 						<img src="{{asset('images/btn_off.png')}}" />
 					</li>
